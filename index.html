@@ -58,27 +58,33 @@
             <section data-scene="history">
               <h2>How Land Transferred Hands</h2>
               <h4>The 1947 UN Partition Plan & 1948 Arab-Israeli War</h4>
-              <p>In 1947, the UN Partition Plan proposed a split between
-              Jewish and Arab nations, shown on the right.
-              However, Israel declared nation state and independence in 1948,
-              and thus began the 1948 Arab - Israeli war which led to the Nakba,
-              or the expulsion of Palestinians from Israeli land. </p>
+              <p>In 1947, the UN Partition Plan proposed a split between Jewish and Arab 
+                nations. However, the League of Arab Nations rejected this proposal, 
+                Israel declared nation state and independence in 1948, and thus began 
+                the 1948 Arab - Israeli war. This led to the Nakba, or the expulsion of 
+                Palestinians from land which Israel won in the war. These Palestinians are 
+                designated refugees, and the UN has maintained their right to return to 
+                their property.  </p>
             </section>
 
             <section data-scene="armistice">
               <h2>The 1949 Armistice</h2>
-              <p>After the war, a 1949 Armistice Line was established. Egypt held control of
-              Gaza and Jordan (controversially) annexed the West Bank. The six-day war in
-              1967 greatly defined the region of Israel and Palestine, as Israel took over
-              the West Bank and Gaza and formally ended Jordan’s control of the West Bank
-              and Egypt’s control of Gaza. This previously defined 1949 Armistice Line
-              became the Green Line as defined by the 1967 war, and what is now recognized
-              as the borders of the Palestinian Territories. </p>
+              <p>After the war, a 1949 Armistice Line was established. Egypt held 
+                control of Gaza and Jordan (controversially) annexed the West Bank. 
+                The six-day war in 1967 greatly defined the region of Israel and Palestine, 
+                as Israel took over the West Bank and Gaza and formally ended Jordan’s 
+                control of the West Bank and Egypt’s control of Gaza. This previously 
+                defined 1949 Armistice Line became the “Green Line” and what is now 
+                recognized as the borders of the Palestinian Territories.  </p>
             </section>
 
             <section data-scene="oslo">
-              <h2>The 1994 Oslo Accords</h2>
-              <p> Areas A, B, and C established. </p>
+              <h2>The Oslo Accords</h2>
+              <p> Bill Clinton in addition to the EU, UN, Russia, and Arab League brokered 
+                a series of agreements between Yitzhak Rabin and Yasser Arafat. While Oslo 
+                did not designate a state to Palestine, it was a significant achievement in 
+                the peace process. It was in the Oslo Accords that Areas A, B, and C were 
+                designated in the West Bank. </p>
             </section>
 
             <section data-scene="disengagement">
@@ -120,7 +126,15 @@
             </section>
 
             <section data-scene="peace">
-              <h2>Recent Protests: Is Peace Possible?</h2>
+              <h2>Is Peace Possible?</h2>
+              <p> Recent attempted peace talks, like those led by John Kerry throughout 2014, 
+                have broken down, especially given Netanyahu’s far-right leadership and the 
+                attempted reconciliation of  Hamas and Fatah in 2014 and eventual agreement in 
+                2017. While there are general internationally agreed upon plans, partners for 
+                peace and willingness to negotiate in addition to a neutral third party are not 
+                in a stable and attainable place at the moment. It seems that peace between these 
+                two populations may not be in the near future, despite the actions of those 
+                trying to promote it. </p>
             </section>
 
             <section data-scene="end" data-background="img/end.jpg">
@@ -166,7 +180,8 @@
                 <p><b>storymap.js</b> | Released Date: 02/20/2017 | Version: 2.5 | MIT License </p>
                 <p><b>Author: Anna Ballasiotes</b> | College of Earth, Ocean, Atmospheric Science | Oregon State University
                 </p>
-                <p>The context regarding Gaza was collected from various sources.</p>
+                <p>The context regarding Gaza was collected from various sources including UN reports and B'tselem, 
+                  an Israeli Human Rights organization.</p>
                 <p>The <a href="https://youtu.be/WTBmdbq0u1k">background video</a> on the front page
                     was clipped from Youtube and spliced together into a shorter video. Thanks to Special Broadcasting Service (SBS), an Australia public broadcasting network. </p>
                 <p>The favicon image was acquired from <a>https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Flag_of_Palestine.svg/1920px-Flag_of_Palestine.svg.png.</a></p>
@@ -279,7 +294,7 @@
           weight: 1,
           opacity: 1
         }),
-        legend: '<i style="background: red; opacity: 1"></i><p><b>Border Crossings</b></p>'
+        legend: '<i style="background: blue; opacity: 1"></i><p><b>Border Crossings</b></p>'
       },
       fence: {
         layer: L.geoJson.ajax('assets/fence.geojson', {
@@ -295,11 +310,11 @@
         overview: {lat: 31.44, lng: 34.38, zoom: 7, name: "Overview"},
         history: {lat: 31.44, lng: 34.38, zoom: 8, layers: [layers.jewish1947, layers.arab1947], name: "History"},
         armistice: {lat: 31.44, lng: 34.38, zoom: 8, layers: [layers.greenline], name: "Armistice"},
-        oslo: {lat: 31.44, lng: 34.38, zoom: 8, layers: [layers.greenline, layers.twentynm, layers.areaCgaza, layers.israelisettlementareas, layers.areaC, layers.areaAandB], name: "Oslo Accords"},
+        oslo: {lat: 31.44, lng: 34.38, zoom: 8, layers: [layers.greenline, layers.twentynm, layers.areaCgaza, layers.areaC, layers.areaAandB], name: "Oslo Accords"},
         disengagement: {lat: 31.44, lng: 34.38, zoom: 11, layers: [layers.greenline, layers.israelisettlements, layers.israelisettlementareas, layers.areaCgaza], name: "Israeli Disengagement"},
         blockade: {lat: 31.44, lng: 34.38, zoom: 11, layers: [layers.buffer, layers.fence, layers.greenline, layers.palestiniancities, layers.gazacrossings], name: "Blockade"},
-        peace: {lat: 31.44, lng: 34.38, zoom: 11, layers: [layers.greenline], name: "Is Peace Possible?"},
-        end: {lat: 31.44, lng: 34.38, zoom: 11, name: "End"}
+        peace: {lat: 31.44, lng: 34.38, zoom: 8, name: "Is Peace Possible?"},
+        end: {lat: 31.44, lng: 34.38, zoom: 8, name: "End"}
     };
 
     $('#storymap').storymap({
