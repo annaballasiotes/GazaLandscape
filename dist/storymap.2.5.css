@@ -121,7 +121,6 @@ section {
 
 .fullscreen {
     position: fixed;
-    opacity: 1;
     top: 0;
     bottom: 0;
     right: 0;
