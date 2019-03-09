@@ -130,19 +130,19 @@
     var layers = {
         base: {layer: L.tileLayer('http://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png')},
         greenline: {
-          layer: L.geoJson.ajax('/assets/greenline.geojson', {
+          layer: L.geoJson.ajax('assets/greenline.geojson', {
             color: 'green',
             weight: 3,
             opacity: 0.5
           })
         },
-        israelisettlements: {layer: L.geoJson.ajax('/assets/israelisettlementareas2005.geojson', {
+        israelisettlements: {layer: L.geoJson.ajax('assets/israelisettlementareas2005.geojson', {
           color: 'red',
           weight: 3,
           opacity: 0.5
         })
         },
-        areaCgaza: {layer: L.geoJson.ajax('/assets/areaCbefore2005.geojson', {
+        areaCgaza: {layer: L.geoJson.ajax('assets/areaCbefore2005.geojson', {
           color: 'red',
           weight: 3,
           opacity: 0.5
