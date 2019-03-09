@@ -1,8 +1,10 @@
 {
 "type": "FeatureCollection",
 "name": "20nm",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::102113" } },
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "OBJECTID": 7, "DESCRIPTIO": "Oslo Accord-20nm", "Shape_Leng": 27863.597045499999, "Shape_Length": 27875.748102091315 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 3780305.264049410820007, 3707645.498609584290534 ], [ 3801053.521499597467482, 3732212.267121520359069 ], [ 3801453.984924416989088, 3732730.621705779805779 ] ] ] } }
+{ "type": "Feature", "properties": { "OBJECTID": 15, "DESCRIPTIO": " ", "Shape_Leng": 40298.874946600001, "Shape_Length": 40311.277097290309 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 34.149042165346636, 31.766741512797267 ], [ 34.163154183228954, 31.786860153304826 ], [ 34.491514371702451, 31.594987490121735 ] ] ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 7, "DESCRIPTIO": "Oslo Accord-20nm", "Shape_Leng": 27863.597045499999, "Shape_Length": 27875.748102091315 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 33.959059973330696, 31.574956701121437 ], [ 34.145444741194183, 31.762782514428764 ], [ 34.149042165346636, 31.766741512797267 ] ] ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 14, "DESCRIPTIO": " ", "Shape_Leng": 39069.064216600003, "Shape_Length": 39085.703480699158 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 34.218315670733062, 31.324328622413642 ], [ 33.944158315314198, 31.562839277245118 ], [ 33.959059973330696, 31.574956701121437 ] ] ] } }
 ]
 }

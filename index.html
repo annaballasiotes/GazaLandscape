@@ -194,7 +194,7 @@
           }),
           legend: '<i style="background: green; opacity: 0.5"></i><p><b>legend 1</b></p>'
         },
-        israelisettlements: {
+        israelisettlementareas: {
           layer: L.geoJson.ajax('assets/israelisettlementareas2005.geojson', {
             color: 'red',
             weight: 3,
@@ -203,6 +203,13 @@
           legend: '<i style="background: red; opacity: 0.5"></i><p><b>legend 2</b></p>'
         
         },
+        israelisettlements: {
+          layer: L.geoJson.ajax('assets/israelisettlements2005.geojson', {
+            color: 'blue',
+            weight: 2,
+            opacity: 0.5
+          }),
+        },
         areaCgaza: {
           layer: L.geoJson.ajax('assets/areaCbefore2005.geojson', {
           color: 'blue',
@@ -210,16 +217,30 @@
           opacity: 0.5
         }),
         legend: '<i style="background: blue; opacity: 0.5"></i><p><b>legend 3</b></p>'
+        },
+        buffer: {
+          layer: L.geoJson.ajax('assets/1kmbuffer.geojson', {
+            color: 'black',
+            weight: 2,
+            opacity: 0.5
+          })
+        },
+        twentynm: {
+          layer: L.geoJson.ajax('assets/20nm.geojson', {
+            color: 'blue',
+            weight: 3,
+            opacity: 0.5
+          })
         }
     };
 
     var scenes = {
         overview: {lat: 31.44, lng: 34.38, zoom: 7, name: "Overview"},
-        history: {lat: 31.44, lng: 34.38, zoom: 8, layers: [layers.greenline], name: "History"},
+        history: {lat: 31.44, lng: 34.38, zoom: 8, layers: [], name: "History"},
         armistice: {lat: 31.44, lng: 34.38, zoom: 8, layers: [layers.greenline], name: "Armistice"},
-        oslo: {lat: 31.44, lng: 34.38, zoom: 8, layers: [layers.greenline], name: "Oslo Accords"},
-        disengagement: {lat: 31.44, lng: 34.38, zoom: 11, layers: [layers.greenline, layers.areaCgaza], name: "Israeli Disengagement"},
-        blockade: {lat: 31.44, lng: 34.38, zoom: 11, layers: [layers.greenline, layers.areaCgaza], name: "Blockade"},
+        oslo: {lat: 31.44, lng: 34.38, zoom: 8, layers: [layers.greenline, layers.twentynm], name: "Oslo Accords"},
+        disengagement: {lat: 31.44, lng: 34.38, zoom: 11, layers: [layers.greenline, layers.israelisettlements, layers.israelisettlementareas, layers.areaCgaza], name: "Israeli Disengagement"},
+        blockade: {lat: 31.44, lng: 34.38, zoom: 11, layers: [layers.buffer, layers.greenline], name: "Blockade"},
         peace: {lat: 31.44, lng: 34.38, zoom: 11, layers: [layers.greenline], name: "Is Peace Possible?"},
         end: {lat: 31.44, lng: 34.38, zoom: 11, name: "End"}
     };
