@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "20nm",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::102113" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 7, "DESCRIPTIO": "Oslo Accord-20nm", "Shape_Leng": 27863.597045499999, "Shape_Length": 27875.748102091315 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 3780305.264049410820007, 3707645.498609584290534 ], [ 3801053.521499597467482, 3732212.267121520359069 ], [ 3801453.984924416989088, 3732730.621705779805779 ] ] ] } }
+]
+}

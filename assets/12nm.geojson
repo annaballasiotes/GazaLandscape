@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "12nm",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::102113" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 2, "DESCRIPTIO": "12 nm", "Shape_Leng": 30856.0700173, "Shape_Length": 30867.685130332331 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 3792613.027763079386204, 3695039.856071499176323 ], [ 3815874.14134077867493, 3722047.667315608356148 ], [ 3816283.698268652427942, 3722558.068184447940439 ] ] ] } }
+]
+}

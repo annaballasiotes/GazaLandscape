@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"name": "gazacrossings",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::102113" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Rafah Crossing Point", "Type": "Primary Crossing Point", "x": 619735.1952, "y": 3457775.2306 }, "geometry": { "type": "Point", "coordinates": [ 3813528.294541638344526, 3665014.975264766719192 ] } },
+{ "type": "Feature", "properties": { "Name": "Sufa Crossing Point", "Type": "Secondary Crossing Point", "x": 626329.048, "y": 3458887.509 }, "geometry": { "type": "Point", "coordinates": [ 3821250.821506918407977, 3666230.848418478388339 ] } },
+{ "type": "Feature", "properties": { "Name": "Erez Crossing Point", "Type": "Primary Crossing Point", "x": 646477.0783000001, "y": 3492511.4079 }, "geometry": { "type": "Point", "coordinates": [ 3845352.326086460147053, 3705478.615650502499193 ] } },
+{ "type": "Feature", "properties": { "Name": "Karni Crossing Point", "Type": "Primary Crossing Point", "x": 640877.2013, "y": 3483568.2675000001 }, "geometry": { "type": "Point", "coordinates": [ 3838644.26570012466982, 3695036.581702447496355 ] } },
+{ "type": "Feature", "properties": { "Name": "Nahal Oz", "Type": "Secondary Crossing Point", "x": 641682.1867, "y": 3484319.9639 }, "geometry": { "type": "Point", "coordinates": [ 3839599.330460743047297, 3695908.737821670249104 ] } },
+{ "type": "Feature", "properties": { "Name": "Kerem Shalom Crossing Point", "Type": "Secondary Crossing Point", "x": 621037.5374, "y": 3455121.2873999998 }, "geometry": { "type": "Point", "coordinates": [ 3815014.81421482283622, 3661880.606722428463399 ] } }
+]
+}

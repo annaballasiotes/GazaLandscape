@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+    <title>Gaza Under Occupation</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!--add required stylesheets-->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+   <!--leaflet css-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!--add favicon for the web page-->
+    <link rel="shortcut icon" href="assets/favicon/PalestineFlag.svg" type="image/x-icon">
+
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="dist/storymap.2.5.css">
+
+    <!--add required libraries-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js"></script>
+    <!--jquery and Popper-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+    <!--boostrap-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!--leaflet.ajax for asynchronously adding geojson data-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+
+    <!--story map plugin-->
+    <script src="dist/storymap.2.5.js"></script>
+</head>
+
+<body>
+<div id="storymap" class="container-fluid" >
+    <div class="row">
+        <!--map div-->
+        <div class="col-sm-6 col-md-8 storymap-map"></div>
+
+        <div class="col-sm-6 col-md-4 storymap-story">
+          <section data-scene="overview">
+            <video class="fullscreen" playsinline autoplay muted loop>
+              <source src="assets/GazaStoryMapVideo.mp4" type="video/mp4">
+            </video>
+            <div class="fullscreen text-center">
+              <h1>Gaza Under Occupation</h1>
+              <h4>History and mechanisms of Israel's blockade on Gaza</h4>
+              <h6> Created by Anna Ballasiotes <br> Inspired by Bo Zhao </h6>
+            </div>
+          </section>
+          <section data-scene="history">
+            <h2>How Land Transferred Hands</h2>
+            <h4>The 1947 UN Partition Plan & 1948 Arab-Israeli War</h4>
+            <p>In 1947, the UN Partition Plan proposed a split between 
+              Jewish and Arab nations, shown on the right. 
+              However, Israel declared nation state and independence in 1948, 
+              and thus began the 1948 Arab - Israeli war which led to the Nakba, 
+              or the expulsion of Palestinians from Israeli land. </p>
+          </section>
+          <section data-scene="armistice">
+            <h2>The 1949 Armistice</h2>
+            <p>After the war, a 1949 Armistice Line was established. Egypt held control of 
+              Gaza and Jordan (controversially) annexed the West Bank. The six-day war in 
+              1967 greatly defined the region of Israel and Palestine, as Israel took over 
+              the West Bank and Gaza and formally ended Jordan’s control of the West Bank 
+              and Egypt’s control of Gaza. This previously defined 1949 Armistice Line 
+              became the Green Line as defined by the 1967 war, and what is now recognized 
+              as the borders of the Palestinian Territories. </p>
+          </section>
+          <section data-scene="oslo">
+            <h2>The 1994 Oslo Accords</h2>
+            <p> Areas A, B, and C established. </p>
+          </section>
+          <section data-scene="disengagement">
+            <h2>2005 Disengagement</h2>
+            <p>In 2005, Israel unilaterally withdrew from the Gaza Strip. Prior to this disengagement, 
+              there were approximately 8,000 Israelis occupying 21 settlements within Gaza. In an agreement 
+              between Israelis and Palestinians, the Israeli settlements were razed after the 
+              removal of settlers. While this left areas of the densely populated territory open for
+               expansion, most Palestinians did not move into this area, in part because of lack of resources 
+               to rebuild. Gaza’s economic situation changed rapidly with the 2006 Palestinian elections 
+               where Hamas was elected in the majority. Hamas ultimately pushed out Fatah, the other major 
+               Palestinian political party, and took complete control of Gaza in 2007, effectively politically 
+               splitting Gaza from the West Bank. 
+              </p>
+          </section>
+          <section data-scene="blockade">
+            <h2>Israel's Blockade on Gaza</h2>
+            <p>Because of Hamas’ terrorist status, Egypt and Israel imposed a blockade on Gaza 
+              via land, air, and ocean, citing security concerns. While Israel continues to 
+              directly occupy the West Bank via settlements and military presence, Israel’s 
+              blockade of Gaza is considered an indirect occupation of Gaza. As such, both 
+              the West Bank and Gaza are considered the occupied Palestinian territories
+              within international literature. In Gaza, the Green Line transitioned into a
+              border with a security fence and later a wall. This border barrier is a physical 
+              restriction on land travel with a buffer zone inside of Gaza parallel to the border 
+              where Gazans are restricted from entering. In parts, this barrier is now a wall 
+              extending deep into the ground to prevent tunneling by Palestinians attempting to 
+              develop a black market system of gathering resources restricted by Israel. Border 
+              crossings along this barrier have been closed through the blockade and at various 
+              points of conflict prior to the blockade. Currently, there are two crossings open: 
+              Erez in the north, which allows humanitarian aid workers, some Palestinian workers, 
+              and others with medical emergencies to cross, and Kerem Shalom in the south. Kerem 
+              Shalom permits the transfer of a limited number of goods into Gaza. This blockade 
+              has restricted exports from Gaza, severely stinting any possible economic growth 
+              and restricted imports of materials that could be used to help repair damaged 
+              infrastructure from acute violence events by the Israeli Defense Force (IDF). 
+              </p>
+          </section>
+          <section data-scene="peace">
+            <h2>Recent Protests: Is Peace Possible?</h2>
+          </section>
+          <section data-scene="end">
+            <div class="fullscreen text-center">
+              <br/> <h6 class="">Thank you for following along!</h6>
+            </div>
+          </section>
+
+        </div>
+    </div>
+</div>
+
+<!-- main javascript -->
+<script type="text/javascript">
+    var layers = {
+        base: {layer: L.tileLayer('http://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png')},
+        greenline: {
+          layer: L.geoJson.ajax('/assets/greenline.geojson', {
+            color: 'green',
+            weight: 3,
+            opacity: 0.5
+          })
+        },
+        israelisettlements: {layer: L.geoJson.ajax('/assets/israelisettlementareas2005.geojson', {
+          color: 'red',
+          weight: 3,
+          opacity: 0.5
+        })
+        },
+        areaCgaza: {layer: L.geoJson.ajax('/assets/areaCbefore2005.geojson', {
+          color: 'red',
+          weight: 3,
+          opacity: 0.5
+        })
+        }
+    };
+
+    var scenes = {
+        overview: {lat: 31.44, lng: 34.38, zoom: 7, layers: [layers.greenline], name: "Overview"},
+        history: {lat: 31.44, lng: 34.38, zoom: 8, layers: [layers.greenline], name: "History"},
+        armistice: {lat: 31.44, lng: 34.38, zoom: 8, layers: [layers.greenline], name: "Armistice"},
+        oslo: {lat: 31.44, lng: 34.38, zoom: 8, layers: [layers.greenline], name: "Oslo Accords"},
+        disengagement: {lat: 31.44, lng: 34.38, zoom: 11, layers: [layers.greenline, layers.israelisettlements], name: "Israeli Disengagement"},
+        blockade: {lat: 31.44, lng: 34.38, zoom: 11, layers: [layers.greenline, layers.israelisettlements], name: "Blockade"},
+        peace: {lat: 31.44, lng: 34.38, zoom: 11, layers: [layers.greenline], name: "Is Peace Possible?"}
+    };
+
+    $('#storymap').storymap({
+        scenes: scenes,
+        baselayer: layers.base,
+        legend: true,
+        loader: true,
+        flyto: false,
+        credits: "Built by Anna Ballasiotes",
+        scalebar: true,
+        scrolldown: false,
+        progressline: true,
+        navwidget: true,
+
+        createMap: function () {
+              // create a map in the "map" div, set the view to a given place and zoom
+              var map = L.map($(".storymap-map")[0], {zoomControl: false, scrollWheelZoom: false}).setView([-31.44,34.38], 7);
+              basemap = this.baselayer.layer.addTo(map)
+              return map;
+          }
+
+    });
+</script>
+
+</body>
+
+</html>
