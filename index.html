@@ -4,13 +4,19 @@
     <title>Gaza Under Occupation</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <!--add required stylesheets-->
+    
+    <meta property="og:title" content="Gaza Under Occupation"/>
+    <meta property="og:url" content="https://annaballasiotes.github.io/GazaLandscape/"/>
+    <meta property="og:description" content="This is a storymap explaining Gaza's landscape and Israel's occupation."/>
+    <meta property="og:image" content="img/social.png"/>
+   
+    <!--add required stylesheets-->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
    <!--leaflet css-->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     <!--add favicon for the web page-->
     <link rel="shortcut icon" href="assets/favicon/PalestineFlag.svg" type="image/x-icon">
 
@@ -21,6 +27,7 @@
 
     <!--add required libraries-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js"></script>
+    
     <!--jquery and Popper-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
@@ -29,23 +36,23 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <!--leaflet.ajax for asynchronously adding geojson data-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
-
+    <!--mini globle map-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+    <script src="js/globeminimap.js"></script>
     <!--story map plugin-->
     <script src="dist/storymap.2.5.js"></script>
 </head>
 <body>
 <div id="storymap" class="container-fluid" >
     <div class="row">
-        <div class="col-sm-6 col-md-8 storymap-map"></div>
-        <div class="col-sm-6 col-md-4 storymap-story">
-            <section data-scene="overview">
-              <video class="fullscreen" playsinline autoplay muted loop>
-              <source src="assets/GazaStoryMapVideo.mp4" type="video/mp4">
-              </video>
+      <div class="col-sm-6 col-md-4 storymap-story">
+            <section data-scene="overview" data-background="assets/GazaStoryMapVideo.mp4">
               <div class="fullscreen text-center">
-                <h1>Gaza Under Occupation</h1>
-                <h4>History and mechanisms of Israel's blockade on Gaza</h4>
-                <h6> Created by Anna Ballasiotes <br> Inspired by Bo Zhao </h6>
+                <h1 class="display-4 d-flex justify-content-center">Gaza Under Occupation</h1>
+                <h5 class="d-flex justify-content-center" style="color:rgba(255,255,255,0.95)">The history of
+                  Gaza's formation and mechanisms of Israel's blockade.
+                </h5>
               </div>
             </section>
             <section data-scene="history">
@@ -57,6 +64,7 @@
               and thus began the 1948 Arab - Israeli war which led to the Nakba, 
               or the expulsion of Palestinians from Israeli land. </p>
             </section>
+            
             <section data-scene="armistice">
               <h2>The 1949 Armistice</h2>
               <p>After the war, a 1949 Armistice Line was established. Egypt held control of 
@@ -67,10 +75,12 @@
               became the Green Line as defined by the 1967 war, and what is now recognized 
               as the borders of the Palestinian Territories. </p>
             </section>
+            
             <section data-scene="oslo">
               <h2>The 1994 Oslo Accords</h2>
               <p> Areas A, B, and C established. </p>
             </section>
+            
             <section data-scene="disengagement">
               <h2>2005 Disengagement</h2>
               <p>In 2005, Israel unilaterally withdrew from the Gaza Strip. Prior to this disengagement, 
@@ -84,6 +94,7 @@
                splitting Gaza from the West Bank. 
               </p>
             </section>
+            
             <section data-scene="blockade">
               <h2>Israel's Blockade on Gaza</h2>
               <p>Because of Hamas’ terrorist status, Egypt and Israel imposed a blockade on Gaza 
@@ -107,20 +118,70 @@
               infrastructure from acute violence events by the Israeli Defense Force (IDF). 
               </p>
             </section>
+            
             <section data-scene="peace">
               <h2>Recent Protests: Is Peace Possible?</h2>
             </section>
-            <section data-scene="end">
+            
+            <section data-scene="end" data-background="img/end.jpg">
               <div class="fullscreen text-center">
-              <br/> <h6 class="">Thank you for following along!</h6>
-              </div>
-          </section>
+                  <h1 class="display-4 d-flex justify-content-center">Thanks for following along!</h1>
+                </div>
+            </section>
 
+        </div>
+      <div class="col-sm-6 col-md-8 storymap-map"></div>
+</div>
+
+<dl>
+    <dt>
+        <!--facebook icon-->
+        <a class="fab fa-facebook-square btn"
+           href="https://facebook.com/sharer.php?u=https://annaballasiotes.github.io/GazaLandscape/"
+           target="_blank"></a>
+    </dt>
+    <dt>
+        <!--GitHub icon-->
+        <a class="fab fa-github btn" href="https://github.com/annaballasiotes" style="top:40px"
+           target="_blank"></a>
+    </dt>
+    <dt>
+        <!--info icon-->
+        <i class="fas fa-info-circle btn" style="top:60px" data-toggle="modal" data-target="#info-modal"></i>
+    </dt>
+</dl>
+
+<!--the info page-->
+<div class="modal fade" id="info-modal" role="dialog">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">About</h4>
+            </div>
+            <div class="modal-body">
+                <p>This is a story map detailing the history of Gaza and Israel's Occupation. The story map library is derived from the
+                    storymap plugin for leaflet at <a>http://atlefren.github.io/storymap/</a>, and its functionality
+                    relies on both leaflet and Bootstrap.</p>
+                <p><b>storymap.js</b> | Released Date: 02/20/2017 | Version: 2.5 | MIT License </p>
+                <p><b>Author: Anna Ballasiotes</b> | College of Earth, Ocean, Atmospheric Science | Oregon State University
+                </p>
+                <p>The context regarding Gaza was collected from various sources.</p>
+                <p>The <a href="https://youtu.be/WTBmdbq0u1k">background video</a> on the front page
+                    was clipped from Youtube and spliced together into a shorter video. Thanks to Special Broadcasting Service (SBS), an Australia public broadcasting network. </p>
+                <p>The favicon image was acquired from <a>https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Flag_of_Palestine.svg/1920px-Flag_of_Palestine.svg.png.</a></p>
+                <p>This story map uses geospatial data from mapbox, Google Earth Engine, ESRI Map, Open Street Maps
+                    and B'tselem.</p>
+            </div>
         </div>
     </div>
 </div>
+</div>
+
 <!-- main javascript -->
 <script type="text/javascript">
+    
+    
     var layers = {
         base: {
           layer: L.tileLayer('http://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png')
@@ -175,14 +236,18 @@
         progressline: true,
         navwidget: true,
         createMap: function () {
-              var map = L.map($(".storymap-map")[0], {zoomControl: false}).setView([-31.44,34.38], 7);
-              basemap = this.baselayer.layer.addTo(map);
-              return map;
-          }
+              var map = L.map($(".storymap-map")[0], {
+                zoomControl: false
+              }).setView([31.44,34.38], 7);
+              
+              new L.Control.GlobeMiniMap({
+                marker: 'red',
+                position: 'bottomright'
+            }).addTo(map);
 
+            return map;
+          }
     });
 </script>
-
 </body>
-
 </html>
