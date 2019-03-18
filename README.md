@@ -14,7 +14,7 @@ Please view the storymap [here!](https://annaballasiotes.github.io/GazaLandscape
 ### Techical Summary:
 
 #### 1. System Architecture
-This is a story map hosted on my personal GitHub web server, pulling from a file server holding my data. I have employed Leaflet as my JavaScript library for developing my map. 
+This is a story map hosted on my personal GitHub server. I have employed Leaflet as my JavaScript library for developing my map. 
 #### 2. Main Functions
 There are a variety of functions included in my story map. Some simple functions include the use of a video for the introduction page, the onClick function to label the Gaza crossing points, and a Leaflet slider to view side-by-side maps. 
 
@@ -22,7 +22,7 @@ There are a variety of functions included in my story map. Some simple functions
 Various Leaflet functions, GitHub, Bootstrap, Google Maps, jQuery, Font Awesome, and Google Font are all used in this story map. 
 
 ### Sources:
-Thank you to Dr. Bo Zhao for the storymap.js framing. 
+Thank you to Dr. Bo Zhao for the storymap.js framework. 
 
 Thanks to B'tselem for providing the majority of the geospatial data for this project.
 
