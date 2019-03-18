@@ -5,7 +5,7 @@ html {
 
 body {
     height: 100%;
-    font-family: Cairo, sans-serif;
+    font-family: Dosis, sans-serif;
     font-size: 14px;
 }
 
@@ -21,14 +21,22 @@ body {
     margin: 0;
     padding: 0;
 }
-
 h1 {
     margin-top: 25%;
-    font-family: Cairo, sans-serif;
+    font-family: Major Mono Display, monospace;
+    font-weight: 300;
     color: rgba(255, 255, 255, 0.95);
     font-size: 4vw;
     text-shadow: 0 0 6px rgba(0, 0, 0, .95);
 }
+h5 {
+    font-family: Dosis, sans-serif;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 2vw;
+    text-shadow: 0 0 6px rgba(0, 0, 0, .95);
+}
+
 
 .storymap-trigger {
     left: 0;
@@ -252,7 +260,7 @@ video {
 }
 
 .storymap-attribution {
-    font-family: Cairo, sans-serif;
+    font-family: Dosis, sans-serif;
     background: rgba(255, 255, 255, 0.6) !important;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
     border-radius: 2px;
@@ -274,7 +282,7 @@ video {
     top: 30px;
     display: none;
     color: #333333;
-    font-family: Cairo, sans-serif;
+    font-family: Dosis, sans-serif;
     padding: 6px 8px;
     background: rgba(255, 255, 255, 0.5);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);

@@ -17,6 +17,9 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:300,400,600,700,800">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Major+Mono+Display">
     <!--add favicon for the web page-->
     <link rel="shortcut icon" href="assets/favicon/PalestineFlag.svg" type="image/x-icon">
 
@@ -24,6 +27,24 @@
     <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="dist/storymap.2.5.css">
+
+    <style>
+      @media (min-width: 768px) {
+          .storymap-story {
+              /*width: 600px;*/
+              background-color: rgba(238, 238, 238, 1);
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.3)
+          }
+          .viewing {
+              background: rgba(221, 221, 221, 0.3);
+          }
+      }
+      section {
+          color: rgba(28, 28, 28, 0.6);
+          background: rgba(204, 204, 204, 0.56);
+          /*opacity: 1 !important;*/
+      }
+  </style>
 
     <!--add required libraries-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js"></script>
@@ -42,6 +63,9 @@
     <script src="js/globeminimap.js"></script>
     <!--story map plugin-->
     <script src="dist/storymap.2.5.js"></script>
+    <!--side by sidse plugin-->
+    <script src="dist/leaflet-side-by-side.js"></script>
+  
 </head>
 <body>
 <div id="storymap" class="container-fluid" >
@@ -49,33 +73,28 @@
       <div class="col-sm-6 col-md-4 storymap-story">
             <section data-scene="overview" data-background="assets/GazaStoryMapVideo.mp4">
               <div class="fullscreen text-center">
-                <h1 class="display-4 d-flex justify-content-center">Gaza Under Occupation</h1>
-                <h5 class="d-flex justify-content-center" style="color:rgba(255,255,255,0.95)">The history of
-                  Gaza's formation and mechanisms of Israel's blockade.
+                <h1 class="d-flex justify-content-center">Gaza UndeR OccuPaTion</h1>
+                <h5 class="d-flex justify-content-center">The evolution of
+                  Gaza and mechanisms of Israel's blockade.
                 </h5>
               </div>
             </section>
             <section data-scene="history">
               <h2>How Land Transferred Hands</h2>
-              <h4>The 1947 UN Partition Plan & 1948 Arab-Israeli War</h4>
+              <h4>The 1947 UN Partition Plan, 1948 Arab-Israeli War, 1949 Armistice</h4>
               <p>In 1947, the UN Partition Plan proposed a split between Jewish and Arab 
                 nations. However, the League of Arab Nations rejected this proposal, 
                 Israel declared nation state and independence in 1948, and thus began 
                 the 1948 Arab - Israeli war. This led to the Nakba, or the expulsion of 
                 Palestinians from land which Israel won in the war. These Palestinians are 
                 designated refugees, and the UN has maintained their right to return to 
-                their property.  </p>
-            </section>
-
-            <section data-scene="armistice">
-              <h2>The 1949 Armistice</h2>
-              <p>After the war, a 1949 Armistice Line was established. Egypt held 
+                their property. After the war, a 1949 Armistice Line was established. Egypt held 
                 control of Gaza and Jordan (controversially) annexed the West Bank. 
                 The six-day war in 1967 greatly defined the region of Israel and Palestine, 
                 as Israel took over the West Bank and Gaza and formally ended Jordan’s 
                 control of the West Bank and Egypt’s control of Gaza. This previously 
                 defined 1949 Armistice Line became the “Green Line” and what is now 
-                recognized as the borders of the Palestinian Territories.  </p>
+                recognized as the borders of the Palestinian Territories. </p>
             </section>
 
             <section data-scene="oslo">
@@ -196,105 +215,143 @@
 <!-- main javascript -->
 <script type="text/javascript">
 
+// legend in HTML
+var gl_legend = '<i style="background: #00802b; opacity: 1"></i><p><b>Green Line</b></p>';
+var settlements2005_leg = '<i style="background: blue; opacity: 0.5"></i><p><b>Israeli Settlements Prior to 2005</b></p>';
+var settlementareas2005_leg = '<i style="background: red; opacity: 0.5"></i><p><b>Israeli Settlement Areas Prior to 2005</b></p>';
+var areaCgaza_legend = '<i style="background: blue; opacity: 0.5"></i><p><b>Israeli Military Zone Prior to 2005</b></p>';
+var kmbuffer_legend = '<i style="background: black; opacity: 0.5"></i><p><b>1km Security Buffer</b></p>';
+
+
+function setColor(feature) {
+    if (feature.properties.AorB == 'Area A') 
+    return "#663300"
+    else return "#994d00";
+}
+
+function style(feature) {
+    return {
+        fillColor: setColor(feature),
+        fillOpacity: 0.65,
+        weight: 1,
+        opacity: 0.75,
+        color: '#663500',
+        dashArray: '2' 
+    };
+}
 
     var layers = {
         base: {
           layer: L.tileLayer('http://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png')
         },
+        satellite: {
+          layer: L.tileLayer('assets/Gaza/{z}/{x}/{y}.png', {
+          maxZoom: 12,
+          tms: true,
+          attribution: 'Generated by QTiles'
+        }),
+        },
         greenline: {
           layer: L.geoJson.ajax('assets/greenline.geojson', {
-            color: 'green',
-            weight: 3,
-            opacity: 0.5
+            color: '#00802b',
+            weight: 2,
+            opacity: 0.75,
+            dashArray: '2.5'
           }),
-          legend: '<i style="background: green; opacity: 0.5"></i><p><b>Green Line</b></p>'
+          legend: gl_legend
         },
         israelisettlementareas: {
           layer: L.geoJson.ajax('assets/israelisettlementareas2005.geojson', {
-            color: 'red',
-            weight: 3,
+            color: '#000099',
+            weight: 0,
             opacity: 0.5
           }),
-          legend: '<i style="background: red; opacity: 0.5"></i><p><b>Israeli Settlement Areas Prior to 2005</b></p>'
-
+          legend: settlementareas2005_leg
         },
         israelisettlements: {
           layer: L.geoJson.ajax('assets/israelisettlements2005.geojson', {
-            color: 'blue',
-            weight: 2,
+            color: '#666699',
+            weight: 1.5,
             opacity: 0.5
           }),
+          legend: settlements2005_leg
         },
         areaCgaza: {
           layer: L.geoJson.ajax('assets/areaCbefore2005.geojson', {
-          color: 'blue',
-          weight: 3,
+          color: '#3366ff',
+          weight: 2,
           opacity: 0.5
         }),
-        legend: '<i style="background: blue; opacity: 0.5"></i><p><b>Israeli Military Zone Prior to 2005</b></p>'
+        legend: areaCgaza_legend
         },
         buffer: {
           layer: L.geoJson.ajax('assets/1kmbuffer.geojson', {
             color: 'black',
             weight: 2,
-            opacity: 0.5
-          })
+            opacity: 0.5,
+            dashArray: '4'
+          }),
+          legend: kmbuffer_legend
         },
         twentynm: {
           layer: L.geoJson.ajax('assets/20nm.geojson', {
             color: 'blue',
-            weight: 3,
-            opacity: 0.5
+            weight: 1.75,
+            opacity: 0.75,
+            dashArray: '3'
           }),
           legend: '<i style="background: blue; opacity: 0.5"></i><p><b>20 nm Maritime Restriction Line</b></p>'
         },
         arab1947: {
           layer: L.geoJson.ajax('assets/arab1947.geojson', {
-            color: 'purple',
+            color: '#009933',
             weight: 3,
             opacity: 0.5
           }),
-          legend: '<i style="background: purple; opacity: 0.5"></i><p><b>Proposed Arab Land</b></p>'
+          legend: '<i style="background: #009933; opacity: 0.5"></i><p><b>Proposed Arab Land</b></p>'
         },
         jewish1947: {
           layer: L.geoJson.ajax('assets/jewish1947.geojson', {
-            color: 'blue',
+            color: '#003399',
             weight: 3,
             opacity: 0.5
           }),
-          legend: '<i style="background: blue; opacity: 0.5"></i><p><b>Proposed Jewish Land</b></p>'
+          legend: '<i style="background: #003399; opacity: 0.5"></i><p><b>Proposed Jewish Land</b></p>'
         },
         palestiniancities: {
           layer: L.geoJson.ajax('assets/gazacities.geojson', {
             color: 'gray',
-            weight: 3,
-            opacity: 0.5
+            weight: 0.01,
+            opacity: 1
           }),
           legend: '<i style="background: gray; opacity: 0.5"></i><p><b>Palestinian Localities</b></p>'
         },
         areaC: {
           layer: L.geoJson.ajax('assets/areaC.geojson', {
-            color: 'blue',
+            color: '#3366ff',
             weight: 1,
-            opacity: 0.5
+            opacity: 0.25
           }),
           legend: '<i style="background: blue; opacity: 0.5"></i><p><b>Area C</b></p>'
         },
         areaAandB: {
           layer: L.geoJson.ajax('assets/areaAandB.geojson', {
-          color: 'brown',
-          weight: 1,
-          opacity: 1
+          style: style,
         }),
         legend: '<i style="background: brown; opacity: 1"></i><p><b>Areas A & B</b></p>'
       },
       gazacrossings: {
-        layer: L.geoJson.ajax('assets/gazacrossings.geojson', {
-          color: 'red',
-          weight: 1,
-          opacity: 1
-        }),
-        legend: '<i style="background: blue; opacity: 1"></i><p><b>Border Crossings</b></p>'
+        layer: L.geoJson.ajax("assets/gazacrossings.geojson", {
+    onEachFeature: function (feature, layer) {
+        layer.bindPopup( feature.properties.Name);
+    },
+    pointToLayer: function (feature, latlng) {
+        var id = 0;
+        if (feature.properties.Type == "Primary Crossing Point") return L.marker(latlng, {icon: L.divIcon({className: 'fas fa-grip-lines'})})
+        else if (feature.properties.Type == "Secondary Crossing Point") { id = 1; }
+          return L.marker(latlng, {icon: L.divIcon({className: 'fas fa-grip-lines'})})
+    },
+    })
       },
       fence: {
         layer: L.geoJson.ajax('assets/fence.geojson', {
@@ -307,14 +364,45 @@
     };
 
     var scenes = {
-        overview: {lat: 31.44, lng: 34.38, zoom: 7, name: "Overview"},
-        history: {lat: 31.44, lng: 34.38, zoom: 8, layers: [layers.jewish1947, layers.arab1947], name: "History"},
-        armistice: {lat: 31.44, lng: 34.38, zoom: 8, layers: [layers.greenline], name: "Armistice"},
-        oslo: {lat: 31.44, lng: 34.38, zoom: 8, layers: [layers.greenline, layers.twentynm, layers.areaCgaza, layers.areaC, layers.areaAandB], name: "Oslo Accords"},
-        disengagement: {lat: 31.44, lng: 34.38, zoom: 11, layers: [layers.greenline, layers.israelisettlements, layers.israelisettlementareas, layers.areaCgaza], name: "Israeli Disengagement"},
-        blockade: {lat: 31.44, lng: 34.38, zoom: 11, layers: [layers.buffer, layers.fence, layers.greenline, layers.palestiniancities, layers.gazacrossings], name: "Blockade"},
-        peace: {lat: 31.44, lng: 34.38, zoom: 8, name: "Is Peace Possible?"},
-        end: {lat: 31.44, lng: 34.38, zoom: 8, name: "End"}
+        overview: {
+          lat: 31.44, 
+          lng: 34.38, 
+          zoom: 7, 
+          name: "Overview"},
+        history: {
+          lat: 31.44, 
+          lng: 34.38, 
+          zoom: 8, 
+          layers: [layers.jewish1947, layers.arab1947, layers.greenline], 
+          name: "History"},
+        oslo: {
+          lat: 31.44, 
+          lng: 34.38, 
+          zoom: 8, 
+          layers: [layers.twentynm, layers.areaCgaza, layers.areaC, layers.areaAandB, layers.greenline], 
+          name: "Oslo Accords"},
+        disengagement: {
+          lat: 31.40, 
+          lng: 34.33, 
+          zoom: 11, 
+          layers: [layers.satellite, layers.greenline, layers.israelisettlementareas, layers.israelisettlements, layers.areaCgaza], 
+          name: "Israeli Disengagement"},
+        blockade: {
+          lat: 31.40, 
+          lng: 34.33, 
+          zoom: 11, 
+          layers: [layers.buffer, layers.fence, layers.greenline, layers.palestiniancities, layers.gazacrossings], 
+          name: "Blockade"},
+        peace: {
+          lat: 31.44, 
+          lng: 34.38, 
+          zoom: 8, 
+          name: "Is Peace Possible?"},
+        end: {
+          lat: 31.44,
+          lng: 34.38, 
+          zoom: 8, 
+          name: "End"}
     };
 
     $('#storymap').storymap({
@@ -328,6 +416,7 @@
         scrolldown: true,
         progressline: true,
         navwidget: true,
+        mapinteraction: true,
         createMap: function () {
               var map = L.map($(".storymap-map")[0], {
                 zoomControl: false
