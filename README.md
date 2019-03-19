@@ -21,9 +21,13 @@ There are a variety of functions included in my story map. Some simple functions
 ### Libraries
 Various Leaflet functions, GitHub, Bootstrap, Google Maps, jQuery, Font Awesome, and Google Font are all used in this story map. 
 
-### Sources:
+### Acknowledgement:
 Thank you to Dr. Bo Zhao for the storymap.js framework. 
 
 Thanks to B'tselem for providing the majority of the geospatial data for this project.
-
+### Credits & References:
+- Video: 
+- Photos:
+- Geographic data: B'tselem
+- Favicon: 
 

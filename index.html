@@ -144,7 +144,8 @@
               </p>
             </section>
 
-            <section data-scene="peace">
+            <section data-scene="peace" data-background = '#3366ff'>
+                <div class="fullscreen text-center">
               <h2>Is Peace Possible?</h2>
               <p> Recent attempted peace talks, like those led by John Kerry throughout 2014, 
                 have broken down, especially given Netanyahu’s far-right leadership and the 
@@ -154,6 +155,7 @@
                 in a stable and attainable place at the moment. It seems that peace between these 
                 two populations may not be in the near future, despite the actions of those 
                 trying to promote it. </p>
+              </div>
             </section>
 
             <section data-scene="end" data-background="img/end.jpg">
@@ -217,9 +219,9 @@
 
 // legend in HTML
 var gl_legend = '<i style="background: #00802b; opacity: 1"></i><p><b>Green Line</b></p>';
-var settlements2005_leg = '<i style="background: blue; opacity: 0.5"></i><p><b>Israeli Settlements Prior to 2005</b></p>';
-var settlementareas2005_leg = '<i style="background: red; opacity: 0.5"></i><p><b>Israeli Settlement Areas Prior to 2005</b></p>';
-var areaCgaza_legend = '<i style="background: blue; opacity: 0.5"></i><p><b>Israeli Military Zone Prior to 2005</b></p>';
+var settlements2005_leg = '<i style="background: #0066cc; opacity: 0.85"></i><p><b>Israeli Settlements Prior to 2005</b></p>';
+var settlementareas2005_leg = '<i style="background: #3366ff; opacity: 0.5"></i><p><b>Israeli Settlement Areas Prior to 2005</b></p>';
+var areaCgaza_legend = '<i style="background: #cc0000; opacity: 0.75"></i><p><b>Israeli Military Zone C Prior to 2005</b></p>';
 var kmbuffer_legend = '<i style="background: black; opacity: 0.5"></i><p><b>1km Security Buffer</b></p>';
 
 
@@ -262,25 +264,28 @@ function style(feature) {
         },
         israelisettlementareas: {
           layer: L.geoJson.ajax('assets/israelisettlementareas2005.geojson', {
-            color: '#000099',
+            color: '#3366ff',
             weight: 0,
-            opacity: 0.5
+            opacity: 0.5,
+            fillOpacity: 0.45
           }),
           legend: settlementareas2005_leg
         },
         israelisettlements: {
           layer: L.geoJson.ajax('assets/israelisettlements2005.geojson', {
-            color: '#666699',
+            color: '#0066cc',
             weight: 1.5,
-            opacity: 0.5
+            opacity: 0.5,
+            fillOpacity: 0.75
           }),
           legend: settlements2005_leg
         },
         areaCgaza: {
           layer: L.geoJson.ajax('assets/areaCbefore2005.geojson', {
-          color: '#3366ff',
+          color: '#cc0000',
           weight: 2,
-          opacity: 0.5
+          opacity: 0.5,
+          fillOpacity: 0.75
         }),
         legend: areaCgaza_legend
         },
@@ -347,9 +352,11 @@ function style(feature) {
     },
     pointToLayer: function (feature, latlng) {
         var id = 0;
-        if (feature.properties.Type == "Primary Crossing Point") return L.marker(latlng, {icon: L.divIcon({className: 'fas fa-grip-lines'})})
+        if (feature.properties.Type == "Primary Crossing Point") return L.marker(latlng, {icon: L.icon({
+          iconUrl: 'assets/grip-lines-solid.svg', iconSize: [22,45]})})
         else if (feature.properties.Type == "Secondary Crossing Point") { id = 1; }
-          return L.marker(latlng, {icon: L.divIcon({className: 'fas fa-grip-lines'})})
+          return L.marker(latlng, {icon: L.icon({
+          iconUrl: 'assets/grip-lines-solid.svg', iconSize: [15,35]})})
     },
     })
       },
@@ -385,7 +392,7 @@ function style(feature) {
           lat: 31.40, 
           lng: 34.33, 
           zoom: 11, 
-          layers: [layers.satellite, layers.greenline, layers.israelisettlementareas, layers.israelisettlements, layers.areaCgaza], 
+          layers: [layers.satellite, layers.greenline, layers.areaCgaza, layers.israelisettlementareas, layers.israelisettlements], 
           name: "Israeli Disengagement"},
         blockade: {
           lat: 31.40, 
