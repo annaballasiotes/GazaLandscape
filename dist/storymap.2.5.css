@@ -29,12 +29,21 @@ h1 {
     font-size: 4vw;
     text-shadow: 0 0 6px rgba(0, 0, 0, .95);
 }
+h4 {
+    margin-top: 25%
+    font-family: Dosis, sans-serif;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 2vw;
+    text-shadow: 0 0 7px rgba(0, 0, 0, .95);
+}
 h5 {
+    margin-top: 10%
     font-family: Dosis, sans-serif;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.95);
     font-size: 2vw;
-    text-shadow: 0 0 6px rgba(0, 0, 0, .95);
+    text-shadow: 0 0 7px rgba(0, 0, 0, .95);
 }
 
 
