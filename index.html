@@ -89,7 +89,7 @@
                 Palestinians from land which Israel won in the war. These Palestinians are 
                 designated refugees, and the UN has maintained their right to return to 
                 their property. After the war, a 1949 Armistice Line was established. Egypt held 
-                control of Gaza and Jordan (controversially) annexed the West Bank. 
+                control of Gaza and Jordan annexed the West Bank. 
                 The six-day war in 1967 greatly defined the region of Israel and Palestine, 
                 as Israel took over the West Bank and Gaza and formally ended Jordan’s 
                 control of the West Bank and Egypt’s control of Gaza. This previously 
@@ -100,10 +100,23 @@
             <section data-scene="oslo">
               <h2>The Oslo Accords</h2>
               <p> Bill Clinton in addition to the EU, UN, Russia, and Arab League brokered 
-                a series of agreements between Yitzhak Rabin and Yasser Arafat. While Oslo 
-                did not designate a state to Palestine, it was a significant achievement in 
-                the peace process. It was in the Oslo Accords that Areas A, B, and C were 
-                designated in the West Bank. </p>
+                a series of agreements between Yitzhak Rabin and Yasser Arafat called the Oslo Accords.
+                These happened in two parts: solely between Clinton, Rabin, and Arafat in 1993, and 
+                brokered by multiple parties in 1995. The 1993 Oslo Accords also formally marked the
+                conclusion of the First Intifada, a Palestinian uprising against Israel. While the 
+                Accords did not designate a state to Palestine, it gave the Palestinian Authority some 
+                administrative ontrol over the West Bank and Gaza and was seen by many a significant 
+                achievement in the peace process. It was in the Oslo Accords that Areas A, B, and C were 
+                designated in the West Bank and the militarized zone and Israeli settlements in Gaza. 
+                Area A is entirely under the control of Palestinians, while Area B is jointly controlled by Israel 
+                and Palestinians, and Area C is entirely under Israel security control. Oslo 2 also marked the
+                beginning of the construction of the barrier fence between Israel and Gaza, although not meant to
+                serve as a legal border. In the map displayed, Areas A and B are shown in brown, while Area C is in blue.
+                The disparate nature of Areas A and B in the West Bank make it difficult for Palestinians to travel 
+                freely throughout this region. While a small portion of Area C is shown in Gaza, this has been 
+                evacuated since 2005, as discussed next.  </p>
+                <img src="img/oslopic.jpg" class="img-fluid" alt="responsive image"
+                     alt-text="Clinton, Rabin, Arafat">
             </section>
 
             <section data-scene="disengagement">
@@ -116,8 +129,9 @@
                to rebuild. Gaza’s economic situation changed rapidly with the 2006 Palestinian elections
                where Hamas was elected in the majority. Hamas ultimately pushed out Fatah, the other major
                Palestinian political party, and took complete control of Gaza in 2007, effectively politically
-               splitting Gaza from the West Bank.
-              </p>
+               splitting Gaza from the West Bank. </p>
+               <img src="img/hamas.jpg" class="img-fluid" alt="responsive image"
+                     alt-text="Hamas Leadership">
             </section>
 
             <section data-scene="blockade">
@@ -127,7 +141,7 @@
               directly occupy the West Bank via settlements and military presence, Israel’s
               blockade of Gaza is considered an indirect occupation of Gaza. As such, both
               the West Bank and Gaza are considered the occupied Palestinian territories
-              within international literature. In Gaza, the Green Line transitioned into a
+              within international literature. In Gaza, the Green Line transitioned into am effective
               border with a security fence and later a wall. This border barrier is a physical
               restriction on land travel with a buffer zone inside of Gaza parallel to the border
               where Gazans are restricted from entering. In parts, this barrier is now a wall
@@ -138,13 +152,15 @@
               Erez in the north, which allows humanitarian aid workers, some Palestinian workers,
               and others with medical emergencies to cross, and Kerem Shalom in the south. Kerem
               Shalom permits the transfer of a limited number of goods into Gaza. This blockade
-              has restricted exports from Gaza, severely stinting any possible economic growth
-              and restricted imports of materials that could be used to help repair damaged
+              has restricted exports from Gaza, severely stinting economic growth
+              and restricting the import of materials that could be used to help repair damaged
               infrastructure from acute violence events by the Israeli Defense Force (IDF).
               </p>
+              <img src="img/fishingprotest2.jpg" class="img-fluid" alt="responsive image"
+                     alt-text="Palestinians protesting Israel's blockade on fishing zones.">
             </section>
 
-            <section data-scene="peace" data-background = '#3366ff'>
+            <section data-scene="peace" data-background = 'img/ispeacepos.jpg'>
                 <div class="fullscreen text-center">
               <h2>Is Peace Possible?</h2>
               <p> Recent attempted peace talks, like those led by John Kerry throughout 2014, 
@@ -218,11 +234,11 @@
 <script type="text/javascript">
 
 // legend in HTML
-var gl_legend = '<i style="background: #00802b; opacity: 1"></i><p><b>Green Line</b></p>';
+var gl_legend = '<i style="border-style: dashed; color: green; opacity: 1"></i><p><b>Green Line</b></p>';
 var settlements2005_leg = '<i style="background: #0066cc; opacity: 0.85"></i><p><b>Israeli Settlements Prior to 2005</b></p>';
 var settlementareas2005_leg = '<i style="background: #3366ff; opacity: 0.5"></i><p><b>Israeli Settlement Areas Prior to 2005</b></p>';
 var areaCgaza_legend = '<i style="background: #cc0000; opacity: 0.75"></i><p><b>Israeli Military Zone C Prior to 2005</b></p>';
-var kmbuffer_legend = '<i style="background: black; opacity: 0.5"></i><p><b>1km Security Buffer</b></p>';
+var kmbuffer_legend = '<i style="border-style: dashed; color: black; opacity: 0.5"></i><p><b>1km Security Buffer</b></p>';
 
 
 function setColor(feature) {
@@ -305,7 +321,7 @@ function style(feature) {
             opacity: 0.75,
             dashArray: '3'
           }),
-          legend: '<i style="background: blue; opacity: 0.5"></i><p><b>20 nm Maritime Restriction Line</b></p>'
+          legend: '<i style="border-style: dashed; color: blue; opacity: 1"></i><p><b>20 nm Maritime Restriction Line</b></p>'
         },
         arab1947: {
           layer: L.geoJson.ajax('assets/arab1947.geojson', {
@@ -327,9 +343,19 @@ function style(feature) {
           layer: L.geoJson.ajax('assets/gazacities.geojson', {
             color: 'gray',
             weight: 0.01,
-            opacity: 1
+            opacity: 1,
+            fillOpacity: 0.45
           }),
-          legend: '<i style="background: gray; opacity: 0.5"></i><p><b>Palestinian Localities</b></p>'
+          legend: '<i style="background: gray; opacity: 0.75"></i><p><b>Palestinian Urban Areas</b></p>'
+        },
+        palestiniancities1: {
+          layer: L.geoJson.ajax('assets/gazacities.geojson', {
+            color: 'black',
+            weight: 0.35,
+            opacity: 0.5,
+            fillOpacity: 0.45
+          }),
+          legend: '<i style="background: black; opacity: 0.45"></i><p><b>Present Day Palestinian Urban Areas</b></p>'
         },
         areaC: {
           layer: L.geoJson.ajax('assets/areaC.geojson', {
@@ -337,38 +363,41 @@ function style(feature) {
             weight: 1,
             opacity: 0.25
           }),
-          legend: '<i style="background: blue; opacity: 0.5"></i><p><b>Area C</b></p>'
+          legend: '<i style="background: #3366ff; opacity: 0.5"></i><p><b>Area C</b></p>'
         },
         areaAandB: {
           layer: L.geoJson.ajax('assets/areaAandB.geojson', {
           style: style,
         }),
-        legend: '<i style="background: brown; opacity: 1"></i><p><b>Areas A & B</b></p>'
-      },
-      gazacrossings: {
-        layer: L.geoJson.ajax("assets/gazacrossings.geojson", {
-    onEachFeature: function (feature, layer) {
-        layer.bindPopup( feature.properties.Name);
-    },
-    pointToLayer: function (feature, latlng) {
-        var id = 0;
-        if (feature.properties.Type == "Primary Crossing Point") return L.marker(latlng, {icon: L.icon({
-          iconUrl: 'assets/grip-lines-solid.svg', iconSize: [22,45]})})
-        else if (feature.properties.Type == "Secondary Crossing Point") { id = 1; }
-          return L.marker(latlng, {icon: L.icon({
-          iconUrl: 'assets/grip-lines-solid.svg', iconSize: [15,35]})})
-    },
-    })
-      },
-      fence: {
-        layer: L.geoJson.ajax('assets/fence.geojson', {
-          color: 'black',
-          weight: 0.5,
-          opacity: 0.75
-        }),
-        legend: '<i style="background: black; opacity: 1"></i><p><b>Border Fence</b></p>'
-      }
-    };
+        legend: '<i style="background: #663300; opacity: 0.75"></i> <p><b>Area A </b></p> <i style="background: #994d00; opacity: 0.65"</> <p><b>Area B</b></p> '
+        },
+        gazacrossings: {
+          layer: L.geoJson.ajax("assets/gazacrossings.geojson", {
+            onEachFeature: function (feature, layer) {
+              layer.bindPopup( feature.properties.Name);
+            },
+            pointToLayer: function (feature, latlng) {
+              var id = 0;
+              if (feature.properties.Type == "Primary Crossing Point") return L.marker(latlng, {icon: L.icon({
+                iconUrl: 'assets/grip-lines-solid.svg', iconSize: [22,45]})})
+              else if (feature.properties.Type == "Secondary Crossing Point") { id = 1; }
+              return L.marker(latlng, {icon: L.icon({
+                iconUrl: 'assets/grip-lines-solid.svg', iconSize: [15,35]})})
+            },
+          }),
+          legend: '<img src="assets/grip-lines-solid.svg"><p><b>Gaza Crossing Points</b></p>'
+        },
+        fence: {
+          layer: L.geoJson.ajax('assets/fence.geojson', {
+            color: 'black',
+            weight: 1.5,
+            opacity: 0.85,
+            lineCap: 'butt',
+            dashArray: '5,2,8'
+          }),
+        legend: '<i style="border-style: dashed dotted dashed dotted; color: black; opacity: 1"></i><p><b>Border Fence</b></p>'
+        }
+      };
 
     var scenes = {
         overview: {
@@ -392,7 +421,7 @@ function style(feature) {
           lat: 31.40, 
           lng: 34.33, 
           zoom: 11, 
-          layers: [layers.satellite, layers.greenline, layers.areaCgaza, layers.israelisettlementareas, layers.israelisettlements], 
+          layers: [layers.satellite, layers.palestiniancities1, layers.greenline, layers.areaCgaza, layers.israelisettlementareas, layers.israelisettlements], 
           name: "Israeli Disengagement"},
         blockade: {
           lat: 31.40, 
