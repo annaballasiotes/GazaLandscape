@@ -30,7 +30,7 @@ h1 {
     text-shadow: 0 0 6px rgba(0, 0, 0, .95);
 }
 h4 {
-    margin-top: 25%
+    margin-top: 15%;
     font-family: Dosis, sans-serif;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.95);
@@ -38,12 +38,11 @@ h4 {
     text-shadow: 0 0 7px rgba(0, 0, 0, .95);
 }
 h5 {
-    margin-top: 10%
     font-family: Dosis, sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     color: rgba(255, 255, 255, 0.95);
     font-size: 2vw;
-    text-shadow: 0 0 7px rgba(0, 0, 0, .95);
+    text-shadow: 0 0 6px rgba(0, 0, 0, 1);
 }
 
 
@@ -285,7 +284,7 @@ video {
 .storymap-legend {
     position: fixed;
     line-height: 16px;
-    width: 100px;
+    width: 220px;
     z-index: 1000;
     right: 20px;
     top: 30px;
