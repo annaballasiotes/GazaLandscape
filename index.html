@@ -63,8 +63,9 @@
     <script src="js/globeminimap.js"></script>
     <!--story map plugin-->
     <script src="dist/storymap.2.5.js"></script>
-    <!--side by sidse plugin-->
+    <!--side by side plugin-->
     <script src="dist/leaflet-side-by-side.js"></script>
+    
   
 </head>
 <body>
@@ -234,12 +235,23 @@
 <script type="text/javascript">
 
 // legend in HTML
+var arab1947_legend = '<i style="background: #009933; opacity: 0.5"></i><p><b>Proposed Arab Land</b></p>';
+var jewish1947_legend = '<i style="background: #003399; opacity: 0.5"></i><p><b>Proposed Jewish Land</b></p>';
 var gl_legend = '<i style="border-style: dashed; color: green; opacity: 1"></i><p><b>Green Line</b></p>';
+
+var areaAB_legend = '<i style="background: #ffd9b3; opacity: 0.75"></i> <p><b>Area A </b></p> <i style="background: #fff2e6; opacity: 0.65"</> <p><b>Area B</b></p>';
+var areaC_legend = '<i style="background: #3366ff; opacity: 0.5"></i><p><b>Area C</b></p>';
+var areaCgaza_legend = '<i style="background: #3366ff; opacity: 0.75"></i><p><b>Israeli Military Zone C Prior to 2005</b></p>';
+var twentynm_legend = '<i style="border-style: dashed; color: blue; opacity: 1"></i><p><b>20 nm Maritime Restriction Line</b></p>';
+
 var settlements2005_leg = '<i style="background: #0066cc; opacity: 0.85"></i><p><b>Israeli Settlements Prior to 2005</b></p>';
 var settlementareas2005_leg = '<i style="background: #3366ff; opacity: 0.5"></i><p><b>Israeli Settlement Areas Prior to 2005</b></p>';
-var areaCgaza_legend = '<i style="background: #3366ff; opacity: 0.75"></i><p><b>Israeli Military Zone C Prior to 2005</b></p>';
-var kmbuffer_legend = '<i style="border-style: dashed; color: black; opacity: 0.5"></i><p><b>1km Security Buffer</b></p>';
+var palestiniancities1_legend = '<i style="background: black; opacity: 0.45"></i><p><b>Present Day Palestinian Urban Areas</b></p>';
+var palestiniancities_legend = '<i style="background: gray; opacity: 0.75"></i><p><b>Palestinian Urban Areas</b></p>';
 
+var kmbuffer_legend = '<i style="border-style: dashed; color: black; opacity: 0.5"></i><p><b>1km Security Buffer</b></p>';
+var fence_legend = '<i style="border-style: dashed dotted dashed dotted; color: black; opacity: 1"></i><p><b>Border Fence</b></p>';
+var crossings_legend = '<img src="assets/grip-lines-solid.svg"><p><b>Gaza Crossing Points</b></p>'
 
 function setColor(feature) {
     if (feature.properties.AorB == 'Area A') 
@@ -322,7 +334,7 @@ function style(feature) {
             opacity: 0.75,
             dashArray: '3'
           }),
-          legend: '<i style="border-style: dashed; color: blue; opacity: 1"></i><p><b>20 nm Maritime Restriction Line</b></p>'
+          legend: twentynm_legend
         },
         arab1947: {
           layer: L.geoJson.ajax('assets/arab1947.geojson', {
@@ -330,7 +342,7 @@ function style(feature) {
             weight: 3,
             opacity: 0.5
           }),
-          legend: '<i style="background: #009933; opacity: 0.5"></i><p><b>Proposed Arab Land</b></p>'
+          legend: arab1947_legend
         },
         jewish1947: {
           layer: L.geoJson.ajax('assets/jewish1947.geojson', {
@@ -338,7 +350,7 @@ function style(feature) {
             weight: 3,
             opacity: 0.5
           }),
-          legend: '<i style="background: #003399; opacity: 0.5"></i><p><b>Proposed Jewish Land</b></p>'
+          legend: jewish1947_legend
         },
         palestiniancities: {
           layer: L.geoJson.ajax('assets/gazacities.geojson', {
@@ -347,7 +359,7 @@ function style(feature) {
             opacity: 1,
             fillOpacity: 0.45
           }),
-          legend: '<i style="background: gray; opacity: 0.75"></i><p><b>Palestinian Urban Areas</b></p>'
+          legend: palestiniancities_legend
         },
         palestiniancities1: {
           layer: L.geoJson.ajax('assets/gazacities.geojson', {
@@ -356,7 +368,7 @@ function style(feature) {
             opacity: 0.5,
             fillOpacity: 0.45
           }),
-          legend: '<i style="background: black; opacity: 0.45"></i><p><b>Present Day Palestinian Urban Areas</b></p>'
+          legend: palestiniancities1_legend
         },
         areaC: {
           layer: L.geoJson.ajax('assets/areaC.geojson', {
@@ -364,13 +376,13 @@ function style(feature) {
             weight: 1,
             opacity: 0.25
           }),
-          legend: '<i style="background: #3366ff; opacity: 0.5"></i><p><b>Area C</b></p>'
+          legend: areaC_legend
         },
         areaAandB: {
           layer: L.geoJson.ajax('assets/areaAandB.geojson', {
           style: style,
         }),
-        legend: '<i style="background: #663300; opacity: 0.75"></i> <p><b>Area A </b></p> <i style="background: #994d00; opacity: 0.65"</> <p><b>Area B</b></p> '
+        legend: areaAB_legend
         },
         gazacrossings: {
           layer: L.geoJson.ajax("assets/gazacrossings.geojson", {
@@ -386,7 +398,7 @@ function style(feature) {
                 iconUrl: 'assets/grip-lines-solid.svg', iconSize: [15,35]})})
             },
           }),
-          legend: '<img src="assets/grip-lines-solid.svg"><p><b>Gaza Crossing Points</b></p>'
+          legend: crossings_legend
         },
         fence: {
           layer: L.geoJson.ajax('assets/fence.geojson', {
@@ -396,9 +408,10 @@ function style(feature) {
             lineCap: 'butt',
             dashArray: '5,2,8'
           }),
-        legend: '<i style="border-style: dashed dotted dashed dotted; color: black; opacity: 1"></i><p><b>Border Fence</b></p>'
+        legend: fence_legend
         }
       };
+
 
     var scenes = {
         overview: {
@@ -422,7 +435,7 @@ function style(feature) {
           lat: 31.40, 
           lng: 34.33, 
           zoom: 11, 
-          layers: [layers.satellite, layers.palestiniancities1, layers.greenline, layers.areaCgaza, layers.israelisettlementareas, layers.israelisettlements], 
+          layers: [layers.satellite, layers.greenline, layers.palestiniancities1, layers.areaCgaza, layers.israelisettlements, layers.israelisettlementareas], 
           name: "Israeli Disengagement"},
         blockade: {
           lat: 31.40, 
