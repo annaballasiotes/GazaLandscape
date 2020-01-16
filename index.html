@@ -20,6 +20,7 @@
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:300,400,600,700,800">
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400">
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Major+Mono+Display">
+
     <!--add favicon for the web page-->
     <link rel="shortcut icon" href="assets/favicon/PalestineFlag.svg" type="image/x-icon">
 
@@ -100,20 +101,20 @@
 
             <section data-scene="oslo">
               <h2>The Oslo Accords</h2>
-              <p> Bill Clinton in addition to the EU, UN, Russia, and Arab League brokered
+              <p> Bill Clinton, in conjunction with the EU, UN, Russia, and Arab League, brokered
                 a series of agreements between Yitzhak Rabin and Yasser Arafat called the Oslo Accords.
-                These happened in two parts: solely between Clinton, Rabin, and Arafat in 1993, and
-                brokered by multiple parties in 1995. The 1993 Oslo Accords also formally marked the
-                conclusion of the First Intifada, a Palestinian uprising against Israel. While the
-                Accords did not designate a state to Palestine, it gave the Palestinian Authority some
-                administrative ontrol over the West Bank and Gaza and was seen by many a significant
-                achievement in the peace process. It was in the Oslo Accords that Areas A, B, and C were
-                designated in the West Bank and the militarized zone and Israeli settlements in Gaza.
+                These happened in two parts: the first agreement was made between Clinton, Rabin, and
+                Arafat in 1993, and the second agreement was brokered by multiple parties in 1995. The
+                1993 Oslo Accords also formally marked the conclusion of the First Intifada, a Palestinian
+                uprising against Israel. While the Accords did not designate a state to Palestine, it gave the Palestinian Authority some
+                administrative control over the West Bank and Gaza and was seen as a significant
+                achievement in the peace process by many. It was in the Oslo Accords that Areas A, B, and C were
+                designated in the West Bank and the militarized zone and Israeli settlements were delineated in Gaza.
                 Area A is entirely under the control of Palestinians, while Area B is jointly controlled by Israel
                 and Palestinians, and Area C is entirely under Israel security control. Oslo 2 also marked the
                 beginning of the construction of the barrier fence between Israel and Gaza, although not meant to
                 serve as a legal border. In the map displayed, Areas A and B are shown in brown, while Area C is in blue.
-                The disparate nature of Areas A and B in the West Bank make it difficult for Palestinians to travel
+                The disparate nature of Areas A and B in the West Bank makes it difficult for Palestinians to travel
                 freely throughout this region. While a small portion of Area C is shown in Gaza, this has been
                 evacuated since 2005, as discussed next.  </p>
                 <img src="img/oslopic.jpg" class="img-fluid" alt="responsive image"
@@ -165,12 +166,12 @@
                 <div class="fullscreen text-center">
               <h4 class="display-4 d-flex justify-content-center">Is Peace Possible?</h4>
               <h5 class="display-6 d-flex justify-content-center"> Recent attempted peace talks, like those led by John Kerry throughout 2014,
-                have broken down, especially given Netanyahu’s far-right leadership and the
-                attempted reconciliation of  Hamas and Fatah in 2014 and eventual agreement in
-                2017. While there are general internationally agreed upon plans, partners for
-                peace and willingness to negotiate in addition to a neutral third party are not
+                have broken down, especially with Netanyahu’s far-right leadership and the
+                attempted reconciliation in 2014 and eventual agreement in 2017 between  Hamas and Fatah.
+                While there are general internationally agreed upon plans, partners for
+                peace and negotiation in addition to a neutral third party are not
                 in a stable and attainable place at the moment. It seems that peace between these
-                two populations may not be in the near future, despite the actions of those
+                two populations may not be in the near future, despite the efforts of those
                 trying to promote it. </h5>
               </div>
             </section>
@@ -241,11 +242,11 @@ var gl_legend = '<i style="border-style: dashed; color: green; opacity: 1"></i><
 
 var areaAB_legend = '<i style="background: #ffd9b3; opacity: 0.75"></i> <p><b>Area A </b></p> <i style="background: #fff2e6; opacity: 0.65"</> <p><b>Area B</b></p>';
 var areaC_legend = '<i style="background: #3366ff; opacity: 0.5"></i><p><b>Area C</b></p>';
-var areaCgaza_legend = '<i style="background: #3366ff; opacity: 0.75"></i><p><b>Israeli Military Zone C Prior to 2005</b></p>';
+var areaCgaza_legend = '<i style="background: #00008b; opacity: 0.55"></i><p><b>Israeli Military Zone Prior to 2005</b></p>';
 var twentynm_legend = '<i style="border-style: dashed; color: blue; opacity: 1"></i><p><b>20 nm Maritime Restriction Line</b></p>';
 
-var settlements2005_leg = '<i style="background: #0066cc; opacity: 0.85"></i><p><b>Israeli Settlements Prior to 2005</b></p>';
-var settlementareas2005_leg = '<i style="background: #3366ff; opacity: 0.5"></i><p><b>Israeli Settlement Areas Prior to 2005</b></p>';
+var settlements2005_leg = '<i style="background: #00008b; opacity: 0.85"></i><p><b>Israeli Settlements Prior to 2005</b></p>';
+var settlementareas2005_leg = '<i style="border-style: dashed; color: #3366ff; opacity: 1"></i><p><b>Israeli Settlement Areas Prior to 2005</b></p>';
 var palestiniancities1_legend = '<i style="background: black; opacity: 0.45"></i><p><b>Present Day Palestinian Urban Areas</b></p>';
 var palestiniancities_legend = '<i style="background: gray; opacity: 0.75"></i><p><b>Palestinian Urban Areas</b></p>';
 
@@ -294,27 +295,28 @@ function style(feature) {
         israelisettlementareas: {
           layer: L.geoJson.ajax('assets/israelisettlementareas2005.geojson', {
             color: '#3366ff',
-            weight: 0,
-            opacity: 0.5,
-            fillOpacity: 0.45
+            weight: 2,
+            opacity: 0.85,
+            dashArray: 3,
+            fillOpacity: 0
           }),
           legend: settlementareas2005_leg
         },
         israelisettlements: {
           layer: L.geoJson.ajax('assets/israelisettlements2005.geojson', {
-            color: '#0066cc',
+            color: '#00008b',
             weight: 1.5,
             opacity: 0.5,
-            fillOpacity: 0.75
+            fillOpacity: 0.85
           }),
           legend: settlements2005_leg
         },
         areaCgaza: {
           layer: L.geoJson.ajax('assets/areaCbefore2005.geojson', {
-          color: '#3366ff',
-          weight: 2,
-          opacity: 0.5,
-          fillOpacity: 0.75
+          color: '#00008b',
+          weight: 1,
+          opacity: 0.25,
+          fillOpacity: 0.55
         }),
         legend: areaCgaza_legend
         },
